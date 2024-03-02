@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { Moon, Sun } from "lucide-react";
+import {  useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDarkMode } from "../DarkContext";
 
 const Header = () => {
-    const [burger, setBurger] = useState<boolean>(false)
+  const [burger, setBurger] = useState<boolean>(false)
   const nav_links: { name: string; path: string; id: number }[] = [
     {
       name: "Home",
@@ -34,17 +36,17 @@ const Header = () => {
         setBurger(false);
         return;
       }
-    //   setBurger(true);
     };
     window.addEventListener("resize", handleResize);
     handleResize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+  const { darkMode, toggleDarkMode } = useDarkMode();
 
   return (
-    <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-3 sticky top-0 ">
+    <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-3 sticky top-0 dark:bg-[#000000ab]">
       <h1
-        className="font-volkhov text-[2rem] text-[#484848]"
+        className="font-volkhov text-[2rem] text-[#484848] dark:text-white"
         onClick={() => navigate("/")}
       >
         DUTA
@@ -61,15 +63,22 @@ const Header = () => {
         {nav_links.map((item) => (
           <li onClick={() => {
             setBurger(false)
-            navigate(item.path)}} className={`duration-300 border border-transparent cursor-pointer px-2 py-2 ${item.path === 'signup' ? 'bg-black rounded text-white hover:bg-[#30A2FF] ' : 'hover:border-gray-600 rounded-xl'}`}>
+            navigate(item.path)}} className={`duration-300 dark:text-white border border-transparent cursor-pointer px-2 py-2 
+            ${item.path === 'signup' ? 'bg-black rounded text-white hover:bg-[#30A2FF] dark:bg-white dark:text-black'
+            : 'hover:border-gray-600 rounded-xl dark:text-black sm:dark:text-white'}`}>
             {item.name}
           </li>
         ))}
       </ul>
       <div className="sm:hidden flex flex-col gap-1 relative cursor-pointer" onClick={()=>setBurger(prev=> !prev)}>
-        <div className={`bg-[#a1a0a0] ${burger ? 'translate-y-1 opacity-0' : 'bg-[#222831] opacity-100'} w-7 h-1 rounded `}></div>
-        <div className={`duration-300 ${burger ? 'bg-[#686767] rotate-[50deg] translate-y-1' : 'bg-[#222831] rotate-[0deg]'}  w-7 h-1 rounded `}></div>
-        <div className={`duration-300 ${burger ? 'bg-[#686767] rotate-[-50deg]' : 'bg-[#222831] rotate-[0deg]'}  w-7 h-1 rounded `}></div>
+        <div className={`dark:bg-white ${burger ? 'translate-y-1 opacity-0' : 'bg-slate-900 opacity-100'} w-7 h-1 rounded `}></div>
+        <div className={`dark:bg-white duration-300 ${burger ? 'bg-[#686767] dark:bg-slate-900 rotate-[50deg] translate-y-1' : 'bg-[#222831] rotate-[0deg]'}  w-7 h-1 rounded `}></div>
+        <div className={`dark:bg-white duration-300 ${burger ? 'bg-[#686767] dark:bg-slate-900 rotate-[-50deg]' : 'bg-[#222831] rotate-[0deg]'} w-7 h-1 rounded `}></div>
+      </div>
+      <div className="cursor-pointer fixed bottom-10 right-10 z-[-1]" onClick={toggleDarkMode}>
+        {
+          darkMode ? <Sun color="#c1c1c1" size={40}/> : <Moon color="#001" size={40}/>
+        }
       </div>
     </div>
   );
