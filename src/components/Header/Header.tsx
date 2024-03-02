@@ -59,7 +59,9 @@ const Header = () => {
       ${burger ? 'translate-x-0' : 'translate-x-full'}
       `}>
         {nav_links.map((item) => (
-          <li onClick={() => navigate(item.path)} className={`duration-300 border border-transparent cursor-pointer px-2 py-2 ${item.path === 'signup' ? 'bg-black rounded text-white hover:bg-[#30A2FF] ' : 'hover:border-gray-600 rounded-xl'}`}>
+          <li onClick={() => {
+            setBurger(false)
+            navigate(item.path)}} className={`duration-300 border border-transparent cursor-pointer px-2 py-2 ${item.path === 'signup' ? 'bg-black rounded text-white hover:bg-[#30A2FF] ' : 'hover:border-gray-600 rounded-xl'}`}>
             {item.name}
           </li>
         ))}
