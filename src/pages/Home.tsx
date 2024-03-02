@@ -1,4 +1,7 @@
+import { useNavigate } from 'react-router-dom';
+import '../styles/home.css'
 const Home = () => {
+  const navigate = useNavigate()
   return (
     <div>
       <section className="grid grid-rows-1 grid-cols-1 grid-flow-col gap-5 
@@ -25,10 +28,10 @@ const Home = () => {
         md:row-start-2 md:col-start-2  md:col-end-3 md:row-span-1
         ">
           <h3 className="text-[1.5rem]  text-center">
-            ULTIMATE <br /> <span className="text-[2.5rem] font-volkhov">CLOTHES</span>
+            ULTIMATE <br /> <span className="custom-text" >CLOTHES</span>
           </h3>
           <p className="text-gray-600">NEW COLLECTION</p>
-          <button className="mt-2 duration-300 p-3 bg-black rounded text-white hover:bg-[#30A2FF]  ">
+          <button onClick={()=>navigate('/products')} className="mt-2 duration-300 p-3 bg-black rounded text-white hover:bg-[#30A2FF]">
             SHOP NOW
           </button>
         </div>

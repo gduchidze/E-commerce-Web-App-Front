@@ -1,0 +1,9 @@
+.custom-text {
+    text-align: center;
+    -webkit-text-stroke-width: 1;
+    -webkit-text-stroke-color: #484848;
+    font-size: 47px;
+    font-weight: 600;
+    line-height: 100%; /* 187px */
+    letter-spacing: -4.285px;
+}
