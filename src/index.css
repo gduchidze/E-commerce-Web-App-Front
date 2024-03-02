@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* fonts */
+@font-face {
+  font-family: "Noto Sans";
+  src: url("path-to-your-font-file/noto-sans.woff2") format("woff2"),
+    url("path-to-your-font-file/noto-sans.woff") format("woff");
+  /* Add additional font formats if needed */
+  /* Add other font properties as needed */
+}
+@font-face {
+  font-family: "Volkhov";
+  src: url("path-to-your-font-file/volkhov.woff2") format("woff2"),
+    url("path-to-your-font-file/volkhov.woff") format("woff");
+  /* Add additional font formats if needed */
+  /* Add other font properties as needed */
+}
