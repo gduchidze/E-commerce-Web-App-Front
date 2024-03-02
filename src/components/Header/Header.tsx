@@ -67,7 +67,7 @@ const Header = () => {
         ))}
       </ul>
       <div className="sm:hidden flex flex-col gap-1 relative cursor-pointer" onClick={()=>setBurger(prev=> !prev)}>
-        <div className={`bg-[#a1a0a0] ${burger ? 'translate-y-1 opacity-0' : 'bg-[#222831] opacity-100'} w-7 h-1 rounded `}></div>
+        <div className={`${burger ? 'translate-y-1 opacity-0' : 'bg-[#222831] opacity-100'} w-7 h-1 rounded `}></div>
         <div className={`duration-300 ${burger ? 'bg-[#686767] rotate-[50deg] translate-y-1' : 'bg-[#222831] rotate-[0deg]'}  w-7 h-1 rounded `}></div>
         <div className={`duration-300 ${burger ? 'bg-[#686767] rotate-[-50deg]' : 'bg-[#222831] rotate-[0deg]'}  w-7 h-1 rounded `}></div>
       </div>
