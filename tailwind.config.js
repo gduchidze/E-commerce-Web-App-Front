@@ -8,6 +8,8 @@ export default {
     extend: {
       fontFamily: {
         'georgian': ['Noto Serif Georgian', 'serif'],
+        'sans': ['Noto Sans', 'sans-serif'],
+        'volkhov': ['Volkhov', 'serif'],
       },
     },
   },

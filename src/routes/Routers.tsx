@@ -1,7 +1,6 @@
 import { Suspense, lazy } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
-
 const Home = lazy(() => import("../pages/Home"));
 const MainProfile = lazy(() => import("../pages/MainProfile"));
 const ProductDetails = lazy(() => import("../pages/ProductDetails"));
