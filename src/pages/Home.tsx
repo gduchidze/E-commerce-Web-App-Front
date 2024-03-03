@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import '../styles/home.css'
+import Testimonial from '../components/UI/Testimonial';
+import brandData from '../data/brandData';
 const Home = () => {
   const navigate = useNavigate()
   return (
@@ -53,6 +55,7 @@ const Home = () => {
           "
         />
       </section>
+      <Testimonial data={brandData}/>
      
     </div>
   );
