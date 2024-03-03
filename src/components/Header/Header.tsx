@@ -52,9 +52,10 @@ const Header = () => {
         DUTA
       </h1>
       {
-        burger && <div className="fixed top-0 left-0 w-screen h-screen bg-[#222831] opacity-50"></div>
+        burger && <div className="fixed top-0 left-0 w-screen h-screen bg-[#222831] opacity-50" onClick={()=>setBurger(false)}></div>
       }
       <ul className={`flex flex-col justify-center gap-[18px] fixed px-20 h-screen top-[0%] right-0 bg-gradient-to-b from-white to-gray-200
+      dark:from-black dark:to-gray-400
       sm:gap-[58px] sm:px-0
       sm:static sm:flex-row sm:bg-none sm:h-full  sm:translate-x-0
       duration-300
@@ -63,9 +64,9 @@ const Header = () => {
         {nav_links.map((item) => (
           <li onClick={() => {
             setBurger(false)
-            navigate(item.path)}} className={`duration-300 dark:text-white border border-transparent cursor-pointer px-2 py-2 
+            navigate(item.path)}} className={`duration-300 border border-transparent cursor-pointer px-2 py-2 
             ${item.path === 'signup' ? 'bg-black rounded text-white hover:bg-[#30A2FF] dark:bg-white dark:text-black'
-            : 'hover:border-gray-600 rounded-xl dark:text-black sm:dark:text-white'}`}>
+            : 'hover:border-gray-600 rounded-xl dark:text-white sm:dark:text-white'}`}>
             {item.name}
           </li>
         ))}
