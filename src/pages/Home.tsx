@@ -6,7 +6,9 @@ const Home = () => {
   const navigate = useNavigate()
   return (
     <div>
-      <section className="grid grid-rows-1 grid-cols-1 grid-flow-col gap-5 
+      <section className="
+      max-w-7xl mx-auto
+      grid grid-rows-1 grid-cols-1 grid-flow-col gap-5 
       sm:grid-rows-2 sm:grid-cols-2 
       md:grid-rows-3 md:grid-cols-3">
         <img

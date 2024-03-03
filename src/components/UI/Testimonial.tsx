@@ -61,7 +61,9 @@ const Testimonial = ({ data }: TestimonialProps) => {
   };
 
   return (
-    <div className="cursor-pointer mt-10 mb-10 dark:bg-white p-10">
+    <div className="
+    max-w-7xl mx-auto
+    cursor-pointer mt-10 mb-10 dark:bg-white p-10">
       <Slider {...settings}>
         {data.map((item: BrandDataProps) => (
           <TestimonialCard data={item} key={item.id} />
