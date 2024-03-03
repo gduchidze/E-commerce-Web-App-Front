@@ -44,8 +44,9 @@ const Header = () => {
   const { darkMode, toggleDarkMode } = useDarkMode();
 
   return (
-    <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-3 sticky z-10 top-0 dark:bg-[#000000ab]">
-      <h1
+    <div className="sticky z-10 top-0 dark:bg-[#000000ab]">
+      <header className="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+        <h1
         className="font-volkhov text-[2rem] text-[#484848] dark:text-white"
         onClick={() => navigate("/")}
       >
@@ -81,6 +82,8 @@ const Header = () => {
           darkMode ? <Sun color="#c1c1c1" size={40}/> : <Moon color="#001" size={40}/>
         }
       </div>
+      </header>
+      
     </div>
   );
 };

@@ -19,7 +19,7 @@ function App() {
 
   return (
     <DarkModeContext.Provider value={{ darkMode, toggleDarkMode }}>
-      <div className={`font-sans max-w-7xl mx-auto ${darkMode ? "dark " : ""} `}>
+      <div className={`font-sans ${darkMode ? "dark " : ""} `}>
         <Layout />
       </div>
     </DarkModeContext.Provider>
