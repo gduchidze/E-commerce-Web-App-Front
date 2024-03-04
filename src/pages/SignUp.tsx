@@ -10,14 +10,17 @@ type FormField = {
 };
 const SignUp = () => {
   const navigate = useNavigate();
-  const { register, handleSubmit, setError,formState:{errors,isSubmitting} } = useForm<FormField>();
+  const { register, handleSubmit, setError,formState:{errors,isSubmitting},watch } = useForm<FormField>();
+  const password = watch('password')
 
   const onSubmit: SubmitHandler<FormField> = async (data) => {
+    console.log(data);
+
     try {
       await new Promise((resolve)=> setTimeout(resolve,1000))
       // I need API here
+
       throw new Error('HEy')
-      console.log(data);
     } catch (error) {
       
       setError('email',{
@@ -70,7 +73,7 @@ const SignUp = () => {
             })}
             type="password"
             placeholder="Password"
-            className="duration-300 py-2 px-5 rounded outline-none border-solid border-2 border-gray-300 focus:border-gray-500 hover:border-gray-400"
+            className="select-auto duration-300 py-2 px-5 rounded outline-none border-solid border-2 border-gray-300 focus:border-gray-500 hover:border-gray-400"
           />
            {
             errors.password && <div className="text-red-600">{errors.password.message}</div>
@@ -78,18 +81,21 @@ const SignUp = () => {
           <input
            {...register("repeatPassword", {
             required: 'Password is required',
-            minLength: {
-              value: 8,
-              message:'Password must have at least 8 characters'
-            }
+            validate: (value)=>{
+              if(password !== value){
+                return "Password is incorrect";
+              }
+              return true;
+            },
           })}
             type="password"
             placeholder="Repeat Password"
-            className="duration-300 py-2 px-5 rounded outline-none border-solid border-2 border-gray-300 focus:border-gray-500 hover:border-gray-400"
+            className="select-none duration-300 py-2 px-5 rounded outline-none border-solid border-2 border-gray-300 focus:border-gray-500 hover:border-gray-400"
           />
           {
             errors.repeatPassword && <div className="text-red-600">{errors.repeatPassword.message}</div>
           }
+         
           <button disabled={isSubmitting} className="bg-black rounded text-white py-2 ">
             {isSubmitting ? 'Loading' : 'Create Account'}
           </button>
